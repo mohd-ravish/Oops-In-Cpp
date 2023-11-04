@@ -3,17 +3,17 @@ using namespace std;
 
 class Line
 {
-private:                          // Data Modifiers
-      double length;              // Attributes or Data
+private:             // Data Modifiers
+      double length; // Attributes or Data
 
 public:
       void setLength(double len); // Behavior or Methods
       double getLength();
-      Line();                     // Constructor
-      ~Line();                    // Destructor
+      Line();  // Constructor
+      ~Line(); // Destructor
 };
 
-Line::Line()
+Line::Line() : length(0)
 {
       cout << "Default Constructor Invoked" << endl;
 }
@@ -35,7 +35,7 @@ double Line ::getLength()
 
 int main()
 {
-      Line line;  // Object or Instance of class
+      Line line; // Object or Instance of class
       line.setLength(4.5);
       cout << "Length of the line : " << line.getLength() << endl;
       return 0;

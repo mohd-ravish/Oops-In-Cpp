@@ -4,28 +4,24 @@ using namespace std;
 
 class Point
 {
-    static int count;
-    static double e;
     double _x;
     double _y;
+    static double e;
 
 public:
     void setCoords(double x, double y);
     void printCoords();
-    double distFrom(Point &p);
-    Point midPoint(Point &p);
     Point();                               // DEFAULT constructor
     Point(double x, double y);             // PARAMETERIZED constructor
     Point(Point &p);                       // COPY constructor
     ~Point();                              // DEFAULT Destructor
     Point operator+(const Point &p) const; // Operator Overloading
+    Point operator*(double s) const;
     bool operator<(const Point &p) const;
     bool operator>(const Point &p) const;
     bool operator==(const Point &p) const;
-    static int getCount();
 };
 
-int Point ::count = 0;
 double Point ::e = -29.55;
 
 void Point ::setCoords(double x, double y)
@@ -39,24 +35,7 @@ void Point ::printCoords()
     cout << "(X: " << _x << ", Y: " << _y << ")" << endl;
 }
 
-double Point ::distFrom(Point &p)
-{
-    double dist = 0.0;
-    dist = sqrt((this->_x - p._x) * (this->_x - p._x) + (this->_y - p._y) * (this->_y - p._y));
-    return dist;
-}
-
-Point Point ::midPoint(Point &p)
-{
-    Point p1;
-    double _x = 0.0;
-    double _y = 0.0;
-    p1._x = (this->_x + p._x) / 2;
-    p1._y = (this->_y + p._y) / 2;
-    return p1;
-}
-
-Point ::Point()
+Point ::Point() : _x(0), _y(0)
 {
     cout << "Default Constructor Invoked" << endl;
 }
@@ -80,17 +59,20 @@ Point ::~Point()
     cout << "Default Destructor Invoked" << endl;
 }
 
-int Point ::getCount()
-{
-    return count;
-}
-
 Point Point ::operator+(const Point &p) const
 {
     Point q;
     q._x = _x + p._x;
     q._y = _y + p._y;
     return q;
+}
+
+Point Point::operator*(const double s) const
+{
+    Point temp;
+    temp._x = _x * s;
+    temp._y = _y * s;
+    return temp;
 }
 
 bool Point ::operator<(const Point &p) const
