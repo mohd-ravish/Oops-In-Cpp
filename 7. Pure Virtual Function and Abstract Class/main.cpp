@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-class Shape // person class (Abstract Class)
+class Shape // Shape class (Abstract Class)
 {
 public:
     virtual void getData() = 0; // pure virtual func
@@ -17,7 +17,7 @@ private:
     float l, b;
 
 public:
-    void getData() // get student data from user
+    void getData()  
     {
         cout << "Enter length: ";
         cin >> l;
@@ -30,13 +30,13 @@ public:
     }
 };
 
-class Circle : public Shape // professor class
+class Circle : public Shape // Circle class
 {
 private:
     float r;
 
 public:
-    void getData() // get professor data from user
+    void getData()  
     {
         cout << "Enter radius: ";
         cin >> r;

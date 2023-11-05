@@ -75,7 +75,7 @@ int main()
     m1.getdata();
     cout << "\nEnter data for scientist\n";
     s1.getdata();
-    // Display data for several employees
+    // Display data for employees
     cout << "\nData on manager\n";
     m1.putdata();
     cout << "\nData on scientist\n";
