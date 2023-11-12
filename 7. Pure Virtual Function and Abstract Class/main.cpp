@@ -57,6 +57,7 @@ int main()
         else
             ptr[i] = new Circle;
     }
+    // Runtime polymorphism
     for(int i = 0; i < 10; i++)
     {
         ptr[i]->getData();
